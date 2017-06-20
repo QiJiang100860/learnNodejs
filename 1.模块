@@ -13,18 +13,7 @@
 一、基本模块
 1.global--node环境中的全局变量
 2.process--nodeJs全局变量（global）提供的一个对象（代表当前node.js的进程）
-        process === global.process;
-        true
-        > process.version;
-        'v5.2.0'
-        > process.platform;
-        'darwin'
-        > process.arch;
-        'x64'
-        > process.cwd(); //返回当前工作目录
-        '/Users/michael'
-        > process.chdir('/private/tmp'); // 切换当前工作目录
-        undefined
-        > process.cwd();
-        '/private/tmp'
-         aaron-------------------------------------------------------2017-06-20
+3.fs--文件系统文件，负责读写文件
+    fs.readFile()--异步读取
+    fs.readFileSync()--同步读取
+    fs.writeFile(fileName,data,callback)--写文件  参数分别为 （文件名，数据，回调函数）
