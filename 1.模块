@@ -1,0 +1,29 @@
+1.一个js文件就是一个模块（module）
+    暴露模块  module.exports = funName
+    其他模块调用  var funName = require('./module_name')
+    @param {module_name}指的是模块的js文件名字，路径为相对路径
+/**
+   传递。。
+*/
+2.要在模块中对外输出变量，用：
+    module.exports = variable;
+3.引入其他模块输出的对象，用：
+    var foo = require('other_module');
+    引入的对象具体是什么，取决于引入模块输出的对象。
+一、基本模块
+1.global--node环境中的全局变量
+2.process--nodeJs全局变量（global）提供的一个对象（代表当前node.js的进程）
+        process === global.process;
+        true
+        > process.version;
+        'v5.2.0'
+        > process.platform;
+        'darwin'
+        > process.arch;
+        'x64'
+        > process.cwd(); //返回当前工作目录
+        '/Users/michael'
+        > process.chdir('/private/tmp'); // 切换当前工作目录
+        undefined
+        > process.cwd();
+        '/private/tmp'
