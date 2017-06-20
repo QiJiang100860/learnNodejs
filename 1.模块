@@ -17,3 +17,4 @@
     fs.readFile()--异步读取
     fs.readFileSync()--同步读取
     fs.writeFile(fileName,data,callback)--写文件  参数分别为 （文件名，数据，回调函数）
+    aa
