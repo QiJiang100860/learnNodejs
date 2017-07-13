@@ -1,0 +1,37 @@
+这里笔记自定义触发事件
+
+evnetObject.on("ownEventName",function(arg,...){
+    //监听自定义事件
+})
+
+//手动触发
+
+evnetObject.emit("ownEventName",arg,...)
+
+evnetObject----任何可能触发事件的对象
+ownEventName---自定义事件名称
+
+例子:
+    //引入http模块
+var http = require("http");
+    //创建http服务
+var server = http.createServer();
+    //监听客户端请求事件
+server.on("request",function(req,res){
+    //过滤默认ico的请求
+    if(req.url !== "/favicon.ico"){
+        console.lo("客户端请求成功！");
+            //手动触发myEvent事件
+        server.emit("myEvent",3,5);
+    }
+    //告诉客户端响应结束;
+    res.end();
+});
+
+    //监听自定义事件，回调函数的定义
+server.on("myEvent",function(a,b){
+    console.log(a+b);
+});
+    //http服务的监听端口
+server.listen(8080,"127.0.0.1");
+

@@ -1,0 +1,26 @@
+(一)  全局方法
+
+1.setTimeout(funcName,time,argument,...);
+    参数说明：
+        funcName：回调函数
+        time：时间差
+        argument：回调函数需要传递的参数
+2.clearTimeout(timeName)
+    清除延迟函数
+
+var demoFunc = function(arg){
+    console.log(arg)
+}//设置回调函数
+var timeFunc = setTimeout(demoFunc,1000,"jiangqi");//设置延迟回调
+clearTimeout(timeFunc)//清除回调函数
+
+3.require("moduleName")
+    引入模块或者自定义模块
+ require.resolve("./file.js") -----获取模块文件的路径缓存
+ require.cache["路径名"]     ------指定模块的缓存
+ delete require.cache[require.resolve("./file.js")]  ----删除缓存
+
+(二)  全局变量 __filename  __dirname
+  ***这两个变量在任何模块中都可以使用；
+1.__filename   ------获取当前模块文件名称（完整的绝对路径）
+2.__dirname    ------获取当前模块文件所在的目录（完整的绝对路径
