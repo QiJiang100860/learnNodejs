@@ -1,0 +1,13 @@
+进入REPL运行环境，在命令行工具，输入node
+.help   ---查看REPL下的命令和简介
+.break  ---跳出多行输入
+.clear  ---清除多行输入
+.editor ---多行输入
+.exit   ---退出REPL环境(ctrl+D)
+.load   ---把外部js文件加载到执行环境中
+    .load ../demo.js 当前目录的上一级
+.save   ---将环境测试的代码保存到文件中
+    .save ./demo.js  根目录
+
+"_"可以访问到上次执行的结果；
+
