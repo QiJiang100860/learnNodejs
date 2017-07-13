@@ -1,0 +1,12 @@
+node-inspector调试工具应用
+1.全局安装node-inspector包
+    npm install -g node-inspector
+2.在命令行工具输入
+    node --debug fileName.js
+3.重新打开一个命令行工具，启动node-inspector,直接输入
+    node-inspector
+4.打开chrome浏览器输入
+    localhost:8080/?port=5858
+解释：
+8080端口监听是需要调试的文件端口（即：项目跑起来的端口，也就是网址）
+5858端口是node-inspector调试端口（可以在node-inspector的安装目录下config.json中修改）
