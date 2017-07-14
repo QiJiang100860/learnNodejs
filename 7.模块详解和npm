@@ -1,0 +1,57 @@
+一.require和exports
+
+
+
+二.组织与管理模块
+*****使用目录来管理模块*****
+    1.项目架构为：
+        node_modules
+            |___module1
+                   |____index.js
+            |___module2
+                   |____index.js
+       加载模块方法：require("module1")  require("module2"), 会自动加载文件夹下面的index.js（必须是*）文件
+    2.项目架构为：
+        node_modules
+            |___module1
+            |       |____lib
+            |       |     |____module1.js(可以自定义)
+            |       |____package.json(配置文件)
+            |___module2
+                    |____lib
+                    |     |____module2.js(可以自定义)
+                    |____package.json(配置文件)
+             配置文件基本内容：
+              package.json
+                  {
+                    "name":"moduleName",
+                    "main":"./lib/moduleFlie.js"
+                  }
+        加载模块方法：require("module1")  require("module2")
+三.module属性详解（require属性）
+    module.id   ---属相值为当前模块的ID，默认主模块的ID属性为"."
+                   其它模块的ID为该模块的绝对路径
+    module.filename  ---当前模块的文件名
+    module.loaded    ---表示文件是否加载完成
+    module.parent    ---调用当前模块的模块对象
+    module.children  ---当前模块调用的模块对象集合，数组[Module,Module,...]
+四.npm包管理器
+--------------------------查询---------------------------------
+npm search moduleName       --搜索并查看包信息
+npm view moduleName         --查看package.json信息
+npm list                    --查看当下目录下安装的所有包
+npm list -g                 --查看全局安装目录下的所有包
+npm root -g                 --查看Node.js的全局的安装路径
+--------------------------安装----------------------------------
+npm install moduleName      --安装到当下目录下的node_modules下
+npm install -g moduleName   --安装到全局安装路径下
+npm uninstall moduleName    --卸载当前目录下的指定的包
+npm uninstall moduleName -g  --卸载全局指定的包
+-------------------------设置-----------------------------------
+npm config set prefix "d:\node"  --修改Node.js的全局安装路径
+-------------------------更新-----------------------------------
+npm update moduleName       --更新当前目录下的指定的包
+npm update moduleName -g    --更新全局指定的包
+npm update                  --更新当前目录下所有的包
+npm undate -g               --更新全局目录下所有的包
+
