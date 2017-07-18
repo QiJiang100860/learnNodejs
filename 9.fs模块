@@ -1,0 +1,44 @@
+一、操作文件参数详细解释
+异步操作  对应的同步操作方法：readFileSync(filename,[option]);
+
+用readFile(filename,[option],callback)
+filename:用于读取文件完整路径及文件名
+option:为一个参数对象
+    option = {
+        flag:"r",
+        //默认为r 还有r+,rs,
+          对应的写入文件有 w+,ws
+          其它追加 a,ax,a+,ax+
+        encoding:"utf8",//base64;ascii等等
+    }
+回调函数
+function(err,data){
+    //err,读取失败抛出错误，
+    //data,读取出来的数据,注意默认读取为Buffer对象
+    //data.toString()转换为‘utf8’格式的内容
+}
+
+二、从文件指定位置读写
+思路：
+引入fs模块
+var fs = require("fs")
+1.先打开文件
+fs.open(filename,flags,[mode],callback)
+--回调函数
+function(err,fd){
+    //err打开失败返回的err对象
+    //fd为打开文件是返回的文件描述（文件句柄）---意思就是打开的是那个文件（个人缪解）
+}
+2.在回调函数中,读取文件（配置读取参数）
+fs.read(fd,buffer,offset,length,position,callback)
+--fd,必须是open方法中的回调函数返回的文件描述
+--buffer,一个Buffer对象，指定将文件数据读取到哪个缓存区
+--offset,缓存去写入数据的开始位置
+--length,从文件中读取的字节数
+--position,读取文件，开始的位置
+--callback,
+3.关闭文件
+function(err,bytesRead,buffer){
+    fs.fsync(fd)
+    fs.close(fd)
+}
